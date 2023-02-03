@@ -24,7 +24,7 @@ module.exports = {
 		},
 	},
 	target: 'web',
-	mode: 'production',
+	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -72,11 +72,8 @@ module.exports = {
 			},
 		],
 	},
+	devtool: 'inline-source-map',
 	plugins: [
-		/**
-		 * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install
-		 * the following package: sudo apt-get install libpng16-dev
-		 */
 		new MiniCssExtractPlugin({
 			filename: 'styles.css',
 			chunkFilename: '[id].css',
@@ -98,14 +95,5 @@ module.exports = {
 			commonjs: 'react-dom',
 			amd: 'react-dom',
 		},
-	},
-	optimization: {
-		minimizer: [
-			new UglifyJsPlugin({
-				cache: true,
-				parallel: true,
-			}),
-			new OptimizeCSSAssetsPlugin({}),
-		],
 	},
 };

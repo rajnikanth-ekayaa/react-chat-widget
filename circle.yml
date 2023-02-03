@@ -1,10 +1,10 @@
 machine:
-  node:
-    version: 8.4.0
+    node:
+        version: 8.4.0
 
 dependencies:
-  override:
-    - npm i
+    override:
+        - npm i
 test:
-  override:
-    - npm run test
+    override:
+        - npm run test

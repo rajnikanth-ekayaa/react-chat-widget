@@ -25,13 +25,14 @@ To dev this project and see changes on the fly, simply use the script
 npm start
 ```
 
-##  Testing
+## Testing
 
 Your new feature **must** be tested with the proper tools. In this project, we use Jest and Enzyme. Once your tests are written, run:
 
 ```bash
 npm run test
 ```
+
 All new tests needs to be pass in order to approve the PR.
 
 If there any view changes, you need to add screenshots for what's been changed for us to see any improvement or your new feature.
