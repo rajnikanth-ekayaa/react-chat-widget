@@ -34,6 +34,7 @@ type Props = {
 	showTimeStamp: boolean;
 	resizable?: boolean;
 	emojis: boolean;
+	onAttachButtonClicked?: AnyFunction;
 };
 
 function Conversation({
@@ -55,6 +56,7 @@ function Conversation({
 	showTimeStamp,
 	resizable,
 	emojis,
+	onAttachButtonClicked,
 }: Props) {
 	const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
 	let startX, startWidth;
@@ -125,6 +127,7 @@ function Conversation({
 				onPressEmoji={togglePicker}
 				onChangeSize={setOffset}
 				emojis={emojis}
+				onAttachButtonClicked={onAttachButtonClicked}
 			/>
 		</div>
 	);

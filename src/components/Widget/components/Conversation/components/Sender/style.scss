@@ -1,16 +1,15 @@
 @import 'variables/colors';
 
 .rcw-sender {
-	align-items: flex-end;
 	background-color: $grey-2;
-	border-radius: 0 0 10px 10px;
 	display: flex;
 	height: max-content;
 	max-height: 95px;
 	min-height: 45px;
 	overflow: hidden;
-	padding: 10px;
+	padding: 10px 0;
 	position: relative;
+	justify-content: space-evenly;
 
 	&.expand {
 		height: 55px;
@@ -75,4 +74,9 @@
 		border-radius: 0;
 		flex-shrink: 0;
 	}
+}
+
+.rcw-attachment-icon {
+	width: 24px;
+	height: 24px;
 }

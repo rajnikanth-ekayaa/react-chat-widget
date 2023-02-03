@@ -33,6 +33,10 @@ export default class App extends Component {
 		setQuickButtons([]);
 	};
 
+	handleAttachButtonClicked = (e: any) => {
+		addResponseMessage('Attached ');
+	};
+
 	handleSubmit = (msgText: string) => {
 		if (msgText.length < 80) {
 			addUserMessage('Uh oh, please write a bit more.');
@@ -49,6 +53,7 @@ export default class App extends Component {
 				senderPlaceHolder='Escribe aquí ...'
 				handleNewUserMessage={this.handleNewUserMessage}
 				handleQuickButtonClicked={this.handleQuickButtonClicked}
+				handleAttachButtonClicked={this.handleAttachButtonClicked}
 				imagePreview
 				handleSubmit={this.handleSubmit}
 				emojis={true}

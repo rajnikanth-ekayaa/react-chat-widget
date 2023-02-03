@@ -36,6 +36,7 @@ type Props = {
 	resizable?: boolean;
 	emojis: boolean;
 	widget: boolean;
+	handleAttachButtonClicked?: AnyFunction;
 };
 
 function Widget({
@@ -67,6 +68,7 @@ function Widget({
 	resizable,
 	emojis,
 	widget,
+	handleAttachButtonClicked,
 }: Props) {
 	const dispatch = useDispatch();
 
@@ -88,6 +90,11 @@ function Widget({
 	const onQuickButtonClicked = (event, value) => {
 		event.preventDefault();
 		handleQuickButtonClicked?.(value);
+	};
+
+	const onAttachButtonClicked = (event, value) => {
+		event.preventDefault();
+		handleAttachButtonClicked?.(value);
 	};
 
 	if (widget) {
@@ -150,6 +157,7 @@ function Widget({
 				showBadge={showBadge}
 				resizable={resizable}
 				emojis={emojis}
+				onAttachButtonClicked={onAttachButtonClicked}
 			/>
 		);
 	}

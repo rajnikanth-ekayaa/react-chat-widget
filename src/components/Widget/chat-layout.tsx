@@ -37,6 +37,7 @@ type Props = {
 	showBadge?: boolean;
 	resizable?: boolean;
 	emojis?: boolean;
+	onAttachButtonClicked?: AnyFunction;
 };
 
 function WidgetLayout({
@@ -66,6 +67,7 @@ function WidgetLayout({
 	showBadge,
 	resizable,
 	emojis,
+	onAttachButtonClicked,
 }: Props) {
 	const dispatch = useDispatch();
 	const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -111,6 +113,7 @@ function WidgetLayout({
 				showTimeStamp={showTimeStamp}
 				resizable={resizable}
 				emojis={false}
+				onAttachButtonClicked={onAttachButtonClicked}
 			/>
 		</div>
 	);

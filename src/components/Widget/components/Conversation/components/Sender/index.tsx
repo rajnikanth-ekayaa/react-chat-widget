@@ -5,11 +5,14 @@ import cn from 'classnames';
 import { GlobalState } from 'src/store/types';
 
 import { getCaretIndex, isFirefox, updateCaret, insertNodeAtCaret, getSelection } from '../../../../../../utils/contentEditable';
+
 const send = require('../../../../../../../assets/send_button.svg') as string;
 const emoji = require('../../../../../../../assets/icon-smiley.svg') as string;
+const attachment = require('../../../../../../../assets/attachment-plus-svgrepo-com.svg') as string;
 const brRegex = /<br>/g;
 
 import './style.scss';
+import { AnyFunction } from 'src/utils/types';
 
 type Props = {
 	placeholder: string;
@@ -21,10 +24,22 @@ type Props = {
 	onChangeSize: (event: any) => void;
 	onTextInputChange?: (event: any) => void;
 	emojis: boolean;
+	onAttachButtonClicked?: AnyFunction;
 };
 
 function Sender(
-	{ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize, emojis }: Props,
+	{
+		sendMessage,
+		placeholder,
+		disabledInput,
+		autofocus,
+		onTextInputChange,
+		buttonAlt,
+		onPressEmoji,
+		onChangeSize,
+		emojis,
+		onAttachButtonClicked,
+	}: Props,
 	ref
 ) {
 	const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
@@ -136,6 +151,11 @@ function Sender(
 			{emojis && (
 				<button className='rcw-picker-btn' type='submit' onClick={handlerPressEmoji}>
 					<img src={emoji} className='rcw-picker-icon' alt='' />
+				</button>
+			)}
+			{onAttachButtonClicked && (
+				<button className='rcw-picker-btn' type='submit' onClick={onAttachButtonClicked}>
+					<img src={attachment} className='rcw-attachment-icon' alt='' />
 				</button>
 			)}
 			<div

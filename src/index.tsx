@@ -35,6 +35,7 @@ type Props = {
 	showBadge?: boolean;
 	resizable?: boolean;
 	widget: boolean;
+	handleAttachButtonClicked?: AnyFunction;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -66,6 +67,7 @@ function ConnectedWidget({
 	resizable,
 	emojis,
 	widget,
+	handleAttachButtonClicked,
 }: Props) {
 	return (
 		<Provider store={store}>
@@ -98,6 +100,7 @@ function ConnectedWidget({
 				resizable={resizable}
 				emojis={emojis}
 				widget={widget}
+				handleAttachButtonClicked={handleAttachButtonClicked}
 			/>
 		</Provider>
 	);
