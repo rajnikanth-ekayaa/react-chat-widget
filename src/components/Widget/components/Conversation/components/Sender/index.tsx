@@ -13,6 +13,7 @@ const brRegex = /<br>/g;
 
 import './style.scss';
 import { AnyFunction } from 'src/utils/types';
+import Loader from '../Messages/components/Loader';
 
 type Props = {
 	placeholder: string;
@@ -42,7 +43,11 @@ function Sender(
 	}: Props,
 	ref
 ) {
-	const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
+	let { typing, showChat } = useSelector((state: GlobalState) => ({
+		typing: state.behavior.messageLoader,
+		showChat: state.behavior.showChat,
+	}));
+
 	const inputRef = useRef<HTMLDivElement>(null!);
 	const refContainer = useRef<HTMLDivElement>(null);
 	const [enter, setEnter] = useState(false);
@@ -166,7 +171,7 @@ function Sender(
 					spellCheck
 					className='rcw-input'
 					role='textbox'
-					contentEditable={!disabledInput}
+					contentEditable={!(disabledInput || typing)}
 					ref={inputRef}
 					placeholder={placeholder}
 					onInput={handlerOnChange}
@@ -175,9 +180,13 @@ function Sender(
 					onKeyDown={handlerOnKeyDown}
 				/>
 			</div>
-			<button type='submit' className='rcw-send' onClick={handlerSendMessage}>
-				<img src={send} className='rcw-send-icon' alt={buttonAlt} />
-			</button>
+			{typing ? (
+				<Loader typing={typing} compact={true} />
+			) : (
+				<button type='submit' className='rcw-send' onClick={handlerSendMessage}>
+					<img src={send} className='rcw-send-icon' alt={buttonAlt} />
+				</button>
+			)}
 		</div>
 	);
 }
