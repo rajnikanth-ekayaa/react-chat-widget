@@ -1,6 +1,4 @@
-import 'react/jsx-runtime';
-
-import ConnectedWidget from './src';
+import Widget from './src';
 import {
 	addUserMessage,
 	addResponseMessage,
@@ -17,8 +15,8 @@ import {
 	setBadgeCount,
 } from './src/store/dispatcher';
 
-export {
-	ConnectedWidget as Widget,
+const ChatWidget = {
+	Widget,
 	addUserMessage,
 	addResponseMessage,
 	addLinkSnippet,
@@ -33,3 +31,5 @@ export {
 	markAllAsRead,
 	setBadgeCount,
 };
+
+export default ChatWidget;

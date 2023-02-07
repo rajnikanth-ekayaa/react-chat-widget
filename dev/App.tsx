@@ -1,45 +1,44 @@
 import { Component } from 'react';
 
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
-import { addUserMessage } from '..';
+import ChatWidget from '../index';
 
 export default class App extends Component {
 	componentDidMount() {
-		addResponseMessage('Welcome to this awesome chat!');
-		addLinkSnippet({ link: 'https://google.com', title: 'Google' });
-		addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
-		addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
+		ChatWidget.addResponseMessage('Welcome to this awesome chat!');
+		ChatWidget.addLinkSnippet({ link: 'https://google.com', title: 'Google' });
+		ChatWidget.addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
+		ChatWidget.addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
 	}
 
 	handleNewUserMessage = (newMessage: any) => {
-		toggleMsgLoader();
+		ChatWidget.toggleMsgLoader();
 		setTimeout(() => {
-			toggleMsgLoader();
+			ChatWidget.toggleMsgLoader();
 			if (newMessage === 'fruits') {
-				setQuickButtons([
+				ChatWidget.setQuickButtons([
 					{ label: 'Apple', value: 'apple' },
 					{ label: 'Orange', value: 'orange' },
 					{ label: 'Pear', value: 'pear' },
 					{ label: 'Banana', value: 'banana' },
 				]);
 			} else {
-				addResponseMessage(newMessage);
+				ChatWidget.addResponseMessage(newMessage);
 			}
 		}, 2000);
 	};
 
 	handleQuickButtonClicked = (e: any) => {
-		addResponseMessage('Selected ' + e);
-		setQuickButtons([]);
+		ChatWidget.addResponseMessage('Selected ' + e);
+		ChatWidget.setQuickButtons([]);
 	};
 
 	handleAttachButtonClicked = (e: any) => {
-		addResponseMessage('Attached ');
+		ChatWidget.addResponseMessage('Attached ');
 	};
 
 	handleSubmit = (msgText: string) => {
 		if (msgText.length < 80) {
-			addUserMessage('Uh oh, please write a bit more.');
+			ChatWidget.addUserMessage('Uh oh, please write a bit more.');
 			return false;
 		}
 		return true;
@@ -47,7 +46,7 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<Widget
+			<ChatWidget.Widget
 				title='Bienvenido'
 				subtitle='Asistente virtual'
 				senderPlaceHolder='Escribe aquí ...'
