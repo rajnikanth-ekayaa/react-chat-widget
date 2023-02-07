@@ -11,8 +11,11 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, '/lib'),
 		filename: 'index.js',
-		library: 'react-chat-widget',
-		libraryTarget: 'umd',
+		library: {
+			name: 'ChatWidget',
+			type: 'umd',
+			export: 'default',
+		},
 		clean: true,
 	},
 	resolve: {
