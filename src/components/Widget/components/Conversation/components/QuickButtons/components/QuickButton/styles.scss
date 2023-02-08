@@ -3,14 +3,13 @@
 .quick-button {
 	background: none;
 	border-radius: 15px;
-	border: 2px solid $turqois-1;
-	font-weight: bold;
+	border: 2px solid $medical-green-1;
 	padding: 5px 10px;
 	cursor: pointer;
 	outline: 0;
 
 	&:active {
-		background: $turqois-1;
+		background: $medical-green-1;
 		color: $white;
 	}
 }
