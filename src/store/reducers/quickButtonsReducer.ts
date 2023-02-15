@@ -3,7 +3,7 @@ import { createQuickButton } from '../../utils/messages';
 import { SET_QUICK_BUTTONS, QuickButtonsActions } from '../actions/types';
 import { QuickButtonsState, QuickButtonTypes } from '../types';
 
-const initialState = {
+export const initialState = {
 	quickButtons: [],
 };
 

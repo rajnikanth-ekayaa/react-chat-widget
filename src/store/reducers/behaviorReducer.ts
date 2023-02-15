@@ -3,7 +3,7 @@ import { BehaviorState } from '../types';
 
 import { BehaviorActions, TOGGLE_CHAT, TOGGLE_INPUT_DISABLED, TOGGLE_MESSAGE_LOADER } from '../actions/types';
 
-const initialState = {
+export const initialState = {
 	showChat: false,
 	disabledInput: false,
 	messageLoader: false,

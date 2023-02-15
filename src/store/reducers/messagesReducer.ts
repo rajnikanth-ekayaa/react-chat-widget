@@ -16,7 +16,7 @@ import {
 	SET_BADGE_COUNT,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
 	messages: [],
 	badgeCount: 0,
 };

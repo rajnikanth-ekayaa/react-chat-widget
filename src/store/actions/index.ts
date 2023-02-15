@@ -108,3 +108,10 @@ export function closeFullscreenPreview(): actionsTypes.FullscreenPreviewActions 
 		type: actionsTypes.CLOSE_FULLSCREEN_PREVIEW,
 	};
 }
+
+export function switchUser(id: string): actionsTypes.SwitchUser {
+	return {
+		type: actionsTypes.SWITCH_USER,
+		id,
+	};
+}

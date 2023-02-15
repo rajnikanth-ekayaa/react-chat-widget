@@ -17,6 +17,7 @@ export const MARK_ALL_READ = 'MESSAGES/MARK_ALL_READ';
 export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
 export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
 export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
+export const SWITCH_USER = 'CHAT/SWITCH_USER';
 
 export interface ToggleChat {
 	type: typeof TOGGLE_CHAT;
@@ -110,3 +111,10 @@ export interface closeFullscreenPreview {
 }
 
 export type FullscreenPreviewActions = openFullscreenPreview | closeFullscreenPreview;
+
+export interface SwitchUser {
+	type: typeof SWITCH_USER;
+	id: string;
+}
+
+export type UserActions = SwitchUser;

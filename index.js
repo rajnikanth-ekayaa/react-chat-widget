@@ -13,6 +13,7 @@ import {
 	deleteMessages,
 	markAllAsRead,
 	setBadgeCount,
+	switchUser,
 } from './src/store/dispatcher';
 
 const ChatWidget = {
@@ -30,6 +31,7 @@ const ChatWidget = {
 	deleteMessages,
 	markAllAsRead,
 	setBadgeCount,
+	switchUser,
 };
 
 export default ChatWidget;

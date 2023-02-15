@@ -63,3 +63,7 @@ export function openFullscreenPreview(payload: ImageState) {
 export function closeFullscreenPreview() {
 	store.dispatch(actions.closeFullscreenPreview());
 }
+
+export function switchUser(id: string) {
+	store.dispatch(actions.switchUser(id));
+}

@@ -70,11 +70,9 @@ function WidgetLayout({
 	onAttachButtonClicked,
 }: Props) {
 	const dispatch = useDispatch();
-	const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
-		showChat: state.behavior.showChat,
-		dissableInput: state.behavior.disabledInput,
-		visible: state.preview.visible,
-	}));
+	const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => {
+		return { showChat: state.behavior.showChat, dissableInput: state.behavior.disabledInput, visible: state.preview.visible };
+	});
 
 	const messageRef = useRef<HTMLDivElement | null>(null);
 

@@ -5,10 +5,13 @@ import format from 'date-fns/format';
 import { scrollToBottom } from '../../../../../../utils/messages';
 import { MessageTypes, Link, CustomCompMessage, GlobalState } from '../../../../../../store/types';
 import { setBadgeCount, markAllMessagesRead } from '../../../../../../store/actions';
-import { MESSAGE_SENDER } from '../../../../../../constants';
+import { MESSAGES_TYPES, MESSAGE_SENDER } from '../../../../../../constants';
 
 import Loader from './components/Loader';
 import './styles.scss';
+import { parseISO } from 'date-fns';
+import Message from './components/Message';
+import Snippet from './components/Snippet';
 
 type Props = {
 	showTimeStamp: boolean;
@@ -34,11 +37,26 @@ function Messages({ profileAvatar, profileClientAvatar, showTimeStamp }: Props) 
 	}, [messages, badgeCount, showChat]);
 
 	const getComponentToRender = (message: MessageTypes | Link | CustomCompMessage) => {
-		const ComponentToRender = message.component;
+		/*const ComponentToRender = message.component;
 		if (message.type === 'component') {
 			return <ComponentToRender {...message.props} />;
 		}
-		return <ComponentToRender message={message} showTimeStamp={showTimeStamp} />;
+		return <ComponentToRender message={message} showTimeStamp={showTimeStamp} />;*/
+
+		switch (message.type) {
+			case MESSAGES_TYPES.TEXT:
+				return <Message message={message as MessageTypes} showTimeStamp={showTimeStamp} />;
+
+			case MESSAGES_TYPES.SNIPPET.LINK:
+				return <Snippet message={message as Link} showTimeStamp={showTimeStamp} />;
+
+			case MESSAGES_TYPES.CUSTOM_COMPONENT:
+				const ComponentToRender = message.component;
+				return <ComponentToRender {...message.props} />;
+
+			default:
+				return null;
+		}
 	};
 
 	// TODO: Fix this function or change to move the avatar to last message from response

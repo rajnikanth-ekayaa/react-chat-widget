@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 import ChatWidget from '../index';
 
@@ -44,20 +44,28 @@ export default class App extends Component {
 		return true;
 	};
 
+	handleSwitchUser = (userID: string) => {
+		ChatWidget.switchUser(userID);
+	};
+
 	render() {
 		return (
-			<ChatWidget.Widget
-				title='Bienvenido'
-				subtitle='Asistente virtual'
-				senderPlaceHolder='Escribe aquí ...'
-				handleNewUserMessage={this.handleNewUserMessage}
-				handleQuickButtonClicked={this.handleQuickButtonClicked}
-				handleAttachButtonClicked={this.handleAttachButtonClicked}
-				imagePreview
-				handleSubmit={this.handleSubmit}
-				emojis={true}
-				widget={false}
-			/>
+			<>
+				<ChatWidget.Widget
+					title='Bienvenido'
+					subtitle='Asistente virtual'
+					senderPlaceHolder='Escribe aquí ...'
+					handleNewUserMessage={this.handleNewUserMessage}
+					handleQuickButtonClicked={this.handleQuickButtonClicked}
+					handleAttachButtonClicked={this.handleAttachButtonClicked}
+					imagePreview
+					handleSubmit={this.handleSubmit}
+					emojis={true}
+					widget={false}
+				/>
+				<button onClick={this.handleSwitchUser.bind(this, 'rajnikanth.leo@gmail.com')}>Switch To Raj</button>
+				<button onClick={this.handleSwitchUser.bind(this, 'admin')}>Switch To Admin</button>
+			</>
 		);
 	}
 }

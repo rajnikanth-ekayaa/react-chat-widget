@@ -63,7 +63,12 @@ export interface FullscreenPreviewState extends ImageState {
 	visible?: boolean;
 }
 
+export interface UserState {
+	userID: string;
+}
+
 export interface GlobalState {
+	user: UserState;
 	messages: MessagesState;
 	behavior: BehaviorState;
 	quickButtons: QuickButtonsState;

@@ -3,7 +3,7 @@ import { FullscreenPreviewState, ImageState } from '../types';
 
 import { OPEN_FULLSCREEN_PREVIEW, CLOSE_FULLSCREEN_PREVIEW, FullscreenPreviewActions } from '../actions/types';
 
-const initialState = {
+export const initialState = {
 	src: '',
 	alt: '',
 	width: 0,
