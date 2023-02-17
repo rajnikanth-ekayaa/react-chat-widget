@@ -1,0 +1,63 @@
+@import 'variables/colors';
+
+.quick-list-container {
+	background: $white;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding: 10px;
+
+	.quick-list {
+		li:first-child {
+			border-top-right-radius: 5px;
+			border-top-left-radius: 5px;
+		}
+		li:nth-last-child(2) {
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border-bottom: 1px solid #a4acad;
+		}
+
+		padding: 10px;
+		margin: 0;
+		text-align: center;
+		.checkbox {
+			margin-right: 10px;
+		}
+		.quick-list-list {
+			border-top: 1px solid #a4acad;
+			border-left: 1px solid #a4acad;
+			border-right: 1px solid #a4acad;
+			border-bottom: 0;
+			display: flex;
+			margin-right: 0px;
+			.list-item{
+				padding: 5px;
+			}
+		}
+		
+		// .quick-list-list-menu-active{
+		// 	border-top: 1px solid #a4acad;
+		// 	border-left: 1px solid #a4acad;
+		// 	border-right: 1px solid #a4acad;
+		// 	border-bottom: 0;
+		// 	display: flex;
+		// 	margin-right: 0px;
+		// 	background-color: #8acbd4;
+		// }
+		.quick-list-submit-button {
+			margin-top: 10px;
+			.submit-button {
+				height: 30px;
+				width: 70%;
+				background: #0792a63b;
+				border-radius: 10px;
+				border: 0px;
+				margin-right: 0px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		padding-bottom: 15px;
+	}
+}

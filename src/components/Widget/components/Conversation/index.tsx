@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
 import QuickButtons from './components/QuickButtons';
+import QuickList from './components/QuickList';
 
 import { AnyFunction } from '../../../../utils/types';
 
@@ -29,6 +30,7 @@ type Props = {
 	profileClientAvatar?: string;
 	titleAvatar?: string;
 	onQuickButtonClicked?: AnyFunction;
+	onQuickListSubmitButtonClicked: AnyFunction;
 	onTextInputChange?: (event: any) => void;
 	sendButtonAlt: string;
 	showTimeStamp: boolean;
@@ -51,6 +53,7 @@ function Conversation({
 	profileClientAvatar,
 	titleAvatar,
 	onQuickButtonClicked,
+	onQuickListSubmitButtonClicked,
 	onTextInputChange,
 	sendButtonAlt,
 	showTimeStamp,
@@ -113,6 +116,7 @@ function Conversation({
 			)}
 			<Messages profileAvatar={profileAvatar} profileClientAvatar={profileClientAvatar} showTimeStamp={showTimeStamp} />
 			<QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
+			<QuickList onQuickListSubmitButtonClicked={onQuickListSubmitButtonClicked} />
 			{emojis && pickerStatus && (
 				<Picker style={{ position: 'absolute', bottom: pickerOffset, left: '0', width: '100%' }} onSelect={onSelectEmoji} />
 			)}

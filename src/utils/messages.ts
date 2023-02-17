@@ -5,7 +5,6 @@ import { MessageTypes as MessageI, Link, CustomCompMessage, LinkParams } from '.
 import Message from '../components/Widget/components/Conversation/components/Messages/components/Message';
 import Snippet from '../components/Widget/components/Conversation/components/Messages/components/Snippet';
 import QuickButton from '../components/Widget/components/Conversation/components/QuickButtons/components/QuickButton';
-
 import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '../constants';
 
 export function createNewMessage(text: string, sender: string, id?: string): MessageI {
@@ -56,6 +55,14 @@ export function createQuickButton(button: { label: string; value: string | numbe
 		value: button.value,
 	};
 }
+
+export function createQuickList(list: { label: string; value: string | number }) {
+	return {
+		label: list.label,
+		value: list.value,
+	};
+}
+
 
 // TODO: Clean functions and window use for SSR
 

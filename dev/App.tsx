@@ -15,12 +15,18 @@ export default class App extends Component {
 		setTimeout(() => {
 			ChatWidget.toggleMsgLoader();
 			if (newMessage === 'fruits') {
-				ChatWidget.setQuickButtons([
-					{ label: 'Apple', value: 'apple' },
-					{ label: 'Orange', value: 'orange' },
-					{ label: 'Pear', value: 'pear' },
-					{ label: 'Banana', value: 'banana' },
-				]);
+				ChatWidget.setQuickList(
+					
+					{
+						list:[
+							{ label: 'Apple', value: 'apple' },
+							{ label: 'Orange', value: 'orange' },
+							{ label: 'Pear', value: 'pear' },
+							{ label: 'Banana', value: 'banana' },
+							],
+							config:{type:"multiple"}
+					}
+						);
 			} else {
 				ChatWidget.addResponseMessage(newMessage);
 			}
@@ -29,11 +35,18 @@ export default class App extends Component {
 
 	handleQuickButtonClicked = (e: any) => {
 		ChatWidget.addResponseMessage('Selected ' + e);
-		ChatWidget.setQuickButtons([]);
+		//ChatWidget.setQuickButtons([]);
+		ChatWidget.setQuickList({list:[],config:{type:"single"}});
+	};
+
+	handleQuickListSubmitButtonClicked = (e: any) => {
+		ChatWidget.addResponseMessage('Selected ' + e);
+		//ChatWidget.setQuickButtons([]);
+		ChatWidget.setQuickList({list:[],config:{type:"single"} });
 	};
 
 	handleAttachButtonClicked = (e: any) => {
-		ChatWidget.addResponseMessage('Attached ');
+		ChatWidget.addResponseMessage('Attached');
 	};
 
 	handleSubmit = (msgText: string) => {
@@ -57,6 +70,7 @@ export default class App extends Component {
 					senderPlaceHolder='Escribe aquí ...'
 					handleNewUserMessage={this.handleNewUserMessage}
 					handleQuickButtonClicked={this.handleQuickButtonClicked}
+					handleQuickListSubmitButtonClick={this.handleQuickListSubmitButtonClicked}
 					handleAttachButtonClicked={this.handleAttachButtonClicked}
 					imagePreview
 					handleSubmit={this.handleSubmit}

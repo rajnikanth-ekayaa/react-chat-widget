@@ -10,6 +10,7 @@ import {
 	dropMessages,
 	isWidgetOpened,
 	setQuickButtons,
+	setQuickList,
 	deleteMessages,
 	markAllAsRead,
 	setBadgeCount,
@@ -18,6 +19,7 @@ import {
 
 const ChatWidget = {
 	Widget,
+	setQuickList,
 	addUserMessage,
 	addResponseMessage,
 	addLinkSnippet,

@@ -44,6 +44,10 @@ export function setQuickButtons(buttons: Array<{ label: string; value: string | 
 	store.dispatch(actions.setQuickButtons(buttons));
 }
 
+export function setQuickList(list: { list: any; config:object;}) {
+	store.dispatch(actions.setQuickList(list));
+}
+
 export function deleteMessages(count: number, id?: string) {
 	store.dispatch(actions.deleteMessages(count, id));
 }

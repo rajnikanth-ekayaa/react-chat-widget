@@ -18,6 +18,7 @@ type Props = {
 	onToggleConversation: AnyFunction;
 	senderPlaceHolder: string;
 	onQuickButtonClicked: AnyFunction;
+	onQuickListSubmitButtonClicked:AnyFunction;
 	profileAvatar?: string;
 	profileClientAvatar?: string;
 	showCloseButton: boolean;
@@ -48,6 +49,7 @@ function WidgetLayout({
 	onToggleConversation,
 	senderPlaceHolder,
 	onQuickButtonClicked,
+	onQuickListSubmitButtonClicked,
 	profileAvatar,
 	profileClientAvatar,
 	showCloseButton,
@@ -106,6 +108,7 @@ function WidgetLayout({
 				titleAvatar={titleAvatar}
 				className='active'
 				onQuickButtonClicked={onQuickButtonClicked}
+				onQuickListSubmitButtonClicked={onQuickListSubmitButtonClicked}
 				onTextInputChange={onTextInputChange}
 				sendButtonAlt={sendButtonAlt}
 				showTimeStamp={showTimeStamp}

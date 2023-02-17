@@ -15,6 +15,7 @@ export const HIDE_AVATAR = 'MESSAGES/HIDE_AVATAR';
 export const DELETE_MESSAGES = 'MESSAGES/DELETE_MESSAGES';
 export const MARK_ALL_READ = 'MESSAGES/MARK_ALL_READ';
 export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
+export const SET_QUICK_LIST = 'SET_QUICK_LIST';
 export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
 export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
 export const SWITCH_USER = 'CHAT/SWITCH_USER';
@@ -75,6 +76,11 @@ export interface DeleteMessages {
 export interface SetQuickButtons {
 	type: typeof SET_QUICK_BUTTONS;
 	buttons: Array<{ label: string; value: string | number }>;
+} 
+
+export interface setQuickList {
+	type: typeof SET_QUICK_LIST;
+	list: { list: any; config: object;}
 }
 
 export interface SetBadgeCount {
@@ -100,6 +106,7 @@ export type MessagesActions =
 	| SetBadgeCount;
 
 export type QuickButtonsActions = SetQuickButtons;
+export type QuickListActions = setQuickList;
 
 export interface openFullscreenPreview {
 	type: typeof OPEN_FULLSCREEN_PREVIEW;

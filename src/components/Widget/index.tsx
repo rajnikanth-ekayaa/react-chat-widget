@@ -20,6 +20,7 @@ type Props = {
 	customLauncher?: AnyFunction;
 	handleNewUserMessage: AnyFunction;
 	handleQuickButtonClicked?: AnyFunction;
+	handleQuickListSubmitButtonClick?:AnyFunction;
 	handleTextInputChange?: (event: any) => void;
 	chatId: string;
 	handleToggle?: AnyFunction;
@@ -52,6 +53,7 @@ function Widget({
 	customLauncher,
 	handleNewUserMessage,
 	handleQuickButtonClicked,
+	handleQuickListSubmitButtonClick,
 	handleTextInputChange,
 	chatId,
 	handleToggle,
@@ -91,6 +93,11 @@ function Widget({
 		event.preventDefault();
 		handleQuickButtonClicked?.(value);
 	};
+	const onQuickListSubmitButtonClicked = (event, value) => {
+		event.preventDefault();
+		handleQuickListSubmitButtonClick?.(value);
+	};
+	
 
 	const onAttachButtonClicked = (event, value) => {
 		event.preventDefault();
@@ -103,6 +110,7 @@ function Widget({
 				onToggleConversation={toggleConversation}
 				onSendMessage={handleMessageSubmit}
 				onQuickButtonClicked={onQuickButtonClicked}
+				onQuickListSubmitButtonClicked={onQuickListSubmitButtonClicked}
 				title={title}
 				titleAvatar={titleAvatar}
 				subtitle={subtitle}
@@ -134,6 +142,7 @@ function Widget({
 				onToggleConversation={toggleConversation}
 				onSendMessage={handleMessageSubmit}
 				onQuickButtonClicked={onQuickButtonClicked}
+				onQuickListSubmitButtonClicked={onQuickListSubmitButtonClicked}
 				title={title}
 				titleAvatar={titleAvatar}
 				subtitle={subtitle}

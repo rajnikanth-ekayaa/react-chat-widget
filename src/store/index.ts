@@ -4,6 +4,7 @@ import user, { initialState as userIS } from './reducers/userReducer';
 import behavior, { initialState as behaviorIS } from './reducers/behaviorReducer';
 import messages, { initialState as messagesIS } from './reducers/messagesReducer';
 import quickButtons, { initialState as quickButtonIS } from './reducers/quickButtonsReducer';
+import quickList, { initialState as quickListIS } from './reducers/quickListReducer';
 import preview, { initialState as previewIS } from './reducers/fullscreenPreviewReducer';
 import { SWITCH_USER } from './actions/types';
 import { GlobalState } from '@types';
@@ -16,7 +17,7 @@ declare global {
 }
 
 const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const reducer = combineReducers({ user, behavior, messages, quickButtons, preview });
+const reducer = combineReducers({ user, behavior, messages, quickButtons, quickList,preview });
 
 const userReducer = (rootReducer: any) => {
 	return function reducer(state: any, action: any) {
@@ -31,6 +32,7 @@ const userReducer = (rootReducer: any) => {
 				: {
 						behavior: behaviorIS,
 						messages: messagesIS,
+						quickList:quickListIS,
 						quickButtons: quickButtonIS,
 						preview: previewIS,
 						user: { userID: action.id },

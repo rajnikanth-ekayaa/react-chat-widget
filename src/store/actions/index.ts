@@ -75,6 +75,14 @@ export function setQuickButtons(buttons: Array<{ label: string; value: string | 
 	};
 }
 
+export function setQuickList(list: { list: any; config: object;}): actionsTypes.setQuickList {
+	return {
+		type: actionsTypes.SET_QUICK_LIST,
+		list,
+	};
+}
+
+
 export function deleteMessages(count: number, id?: string): actionsTypes.DeleteMessages {
 	return {
 		type: actionsTypes.DELETE_MESSAGES,

@@ -21,6 +21,18 @@ export type QuickButtonTypes = {
 	component: ElementType;
 };
 
+export type QuickListTypes = {
+	label: string;
+	value: string | number;
+	component: ElementType;
+};
+
+export type QuickListConfig = {
+	type: string;
+};
+
+
+
 export interface Link extends BaseMessage {
 	title: string;
 	link: string;
@@ -52,6 +64,12 @@ export interface QuickButtonsState {
 	quickButtons: QuickButtonTypes[];
 }
 
+
+export interface QuickListState {
+	quickList: QuickListTypes[];
+	quickListConfig:QuickListConfig
+}
+
 export interface ImageState {
 	src: string;
 	alt?: string;
@@ -72,5 +90,7 @@ export interface GlobalState {
 	messages: MessagesState;
 	behavior: BehaviorState;
 	quickButtons: QuickButtonsState;
+	quickList:QuickListState;
+	
 	preview: FullscreenPreviewState;
 }

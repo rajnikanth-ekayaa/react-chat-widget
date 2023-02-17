@@ -25,7 +25,7 @@ export function toggleInputDisabled(): void;
 export function dropMessages(): void;
 export function isWidgetOpened(): boolean;
 export function setQuickButtons(buttons: Array<{ label: string; value: string | number }>): void;
-
+export function setQuickList(list: { list: any; config:{};}): void;
 export function deleteMessages(count: number): void;
 export function deleteMessages(count: number, id: string): void;
 
